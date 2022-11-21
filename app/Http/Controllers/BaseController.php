@@ -23,8 +23,14 @@ class BaseController extends Controller
     public function userInfoCreate(Request $request){
         $request->validate([
             'name'=>'required',
-            'email'=>'required',
-            
+            'email'=>'required|email',
+            'password' => [
+                'required',
+                'min:6',
+                'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+                'confirmed'
+            ],
+            'confirm_password'=> 'required|same:password'
         ]);
         echo "on the create";
         print_r($request->all());
