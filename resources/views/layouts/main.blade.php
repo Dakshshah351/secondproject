@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> main file </title>
+        @stack('title')
+        {{-- <title> main file </title> --}}
     </head>
     <body>
            

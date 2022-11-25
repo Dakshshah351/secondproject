@@ -1,7 +1,10 @@
 
-    <head>
-        <title> about</title>
-    </head>
+<head>
+    @push('title')
+    <title>About Us</title>    
+    @endpush
+ 
+</head>
 
 @extends('layouts.main')
 @section('main-section')

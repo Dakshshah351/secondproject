@@ -1,30 +1,18 @@
 <?php
+
 namespace App\Http\Controllers;
-use App\Models\userinfo;
+
+use App\Models\register_model;
 use Illuminate\Http\Request;
 
-
-
-
-class BaseController extends Controller
-{   
-    public function index()
+class registerController extends Controller
+{
+    public function register()
     {
-        return view('welcome');
+        return view ('register');
     }
-    public function about ($name,$lname)
-    {
-        $fullname=$name." ".$lname;
-        $collage= "<h1> DAKSH'S PROJECT</h1>";
-        $students = ['daksh', 'divy', 'kleval', 'hetvi'];
-        return view('about',compact('fullname','collage','students'));
-    }
-    public function userInfo()
-    {
-        return view ('userInfo');
-    }
-  
-    public function userInfoCreate(Request $request)
+
+    public function register_post(Request $request)
     {
         $request->validate
         ([
@@ -37,7 +25,7 @@ class BaseController extends Controller
             ],
             'confirm_password'=> 'required|same:password'
         ]);
-        userinfo::create([
+        register_model::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => $request['password'],
@@ -49,4 +37,3 @@ class BaseController extends Controller
     }
 
 }
-

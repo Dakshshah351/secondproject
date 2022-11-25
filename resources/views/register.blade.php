@@ -2,12 +2,12 @@
 @section('main-section')
 <head>
     @push('title')
-    <title>User Info</title>    
+    <title>Register</title>    
     @endpush
  
 </head>
     daksh shah
-    <form action="/userinfo" method="POST">
+    <form action="/register" method="POST">
         @csrf
         <label> First Name </label>
         <input type="text" value="{{ old('name') }}" name="name"><br><br><br>
